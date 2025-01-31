@@ -1,25 +1,23 @@
-document.getElementById('searchForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const tcNo = document.getElementById('tcNo').value;
-
-    fetch('https://docs.google.com/spreadsheets/d/1glUdVNPeMnUMzcncV_jkHzYfs22dK9fS3HxfM1AC9QI/edit?usp=drive_link')
-        .then(response => response.arrayBuffer())
-        .then(data => {
-            const workbook = XLSX.read(data, { type: 'array' });
-            const sheet = workbook.Sheets[workbook.SheetNames[0]];
-            const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-            const member = jsonData.find(member => member['TC Kimlik No'] === tcNo);
-            if (member) {
-                document.getElementById('result').innerHTML = `
-                    <p>İsim: ${member['İsim']}</p>
-                    <p>Soyisim: ${member['Soyisim']}</p>
-                    <p>Aidat Borcu: ${member['Aidat Borcu']}</p>
-                    <p>Dernek Lokali İçin Verilen Para: ${member['Dernek Lokali İçin Verilen Para']}</p>
-                `;
-            } else {
-                document.getElementById('result').innerHTML = `<p>Üye bulunamadı.</p>`;
-            }
-        })
-        .catch(error => console.error('Error:', error));
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('member-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const tc = document.getElementById('tc').value;
+        fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1glUdVNPeMnUMzcncV_jkHzYfs22dK9fS3HxfM1AC9QI/pub?output=csv')
+            .then(response => response.text())
+            .then(data => {
+                const rows = data.split('\n').map(row => row.split(','));
+                const member = rows.find(row => row[0] === tc);
+                if (member) {
+                    document.getElementById('name').textContent = member[1];
+                    document.getElementById('surname').textContent = member[2];
+                    document.getElementById('debt').textContent = member[3];
+                    document.getElementById('donation').textContent = member[4];
+                    document.getElementById('member-info').style.display = 'block';
+                } else {
+                    alert('Üye bulunamadı.');
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    });
 });

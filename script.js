@@ -2,7 +2,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const tcNo = document.getElementById('tcNo').value;
 
-    fetch('uyeler.xlsx')
+    fetch('https://docs.google.com/spreadsheets/d/1glUdVNPeMnUMzcncV_jkHzYfs22dK9fS3HxfM1AC9QI/edit?usp=drive_link')
         .then(response => response.arrayBuffer())
         .then(data => {
             const workbook = XLSX.read(data, { type: 'array' });

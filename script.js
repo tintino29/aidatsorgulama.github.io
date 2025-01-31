@@ -1,31 +1,81 @@
-document.getElementById('aidatForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var tcNo = document.getElementById('tcNo').value;
-    var url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/17D0IltGD3NRqqMSBcuVDzZrn3dp35kMj9sReAopsA0g/edit?usp=sharing';
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const tcNo = document.getElementById('tcNo').value;
 
-    fetch(url)
+    fetch('uyeler.xlsx')
         .then(response => response.arrayBuffer())
         .then(data => {
-            var workbook = XLSX.read(data, { type: 'array' });
-            var sheet = workbook.Sheets[workbook.SheetNames[0]];
-            var json = XLSX.utils.sheet_to_json(sheet);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheet = workbook.Sheets[workbook.SheetNames[0]];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            console.log(json); // Verileri konsolda kontrol edin
-
-            var uye = json.find(row => row['TC Kimlik No'] == tcNo);
-            if (uye) {
-                document.getElementById('sonuc').innerHTML = `
-                    <p>Adı: ${uye['Adı']}</p>
-                    <p>Soyadı: ${uye['Soyadı']}</p>
-                    <p>Aidat Borcu: ${uye['Aidat Borcu']}</p>
-                    <p>Dernek Alımında Verilen Para: ${uye['Verilen Para']}</p>
+            const member = jsonData.find(member => member['TC Kimlik No'] === tcNo);
+            if (member) {
+                document.getElementById('result').innerHTML = `
+                    <p>İsim: ${member['İsim']}</p>
+                    <p>Soyisim: ${member['Soyisim']}</p>
+                    <p>Aidat Borcu: ${member['Aidat Borcu']}</p>
+                    <p>Dernek Lokali İçin Verilen Para: ${member['Dernek Lokali İçin Verilen Para']}</p>
                 `;
             } else {
-                document.getElementById('sonuc').innerText = 'TC Kimlik Numarası bulunamadı';
+                document.getElementById('result').innerHTML = `<p>Üye bulunamadı.</p>`;
             }
         })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('sonuc').innerText = 'Veri çekme hatası. Lütfen tekrar deneyin.';
-        });
+        .catch(error => console.error('Error:', error));
 });
+4. CSS ile Stil Verme
+styles.css dosyanızda sayfanızın stilini belirleyin:
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+}

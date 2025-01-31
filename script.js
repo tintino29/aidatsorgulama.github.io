@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const tc = document.getElementById('tc').value;
-        fetch('https://docs.google.com/spreadsheets/d/1ut9ZnF-r0Q4qGR6Pp3XsebKKSbpfSTiZNtS5O9CjHAg/edit?usp=sharing')
+        const url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/1ut9ZnF-r0Q4qGR6Pp3XsebKKSbpfSTiZNtS5O9CjHAg/edit?usp=drive_link';
+        fetch(url)
             .then(response => response.arrayBuffer())
             .then(data => {
                 const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });

@@ -6,10 +6,10 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    width: 80%;
     margin: 50px auto;
+    background: #fff;
     padding: 20px;
-    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -21,26 +21,23 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-label {
-    margin-bottom: 5px;
-    color: #555;
+label, input, button {
+    margin: 10px 0;
 }
 
 input {
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 200px;
 }
 
 button {
-    padding: 10px;
-    background-color: #007bff;
+    padding: 10px 20px;
+    background-color: #007BFF;
     color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -48,6 +45,10 @@ button:hover {
     background-color: #0056b3;
 }
 
-#result {
+#member-info {
     margin-top: 20px;
+}
+
+p {
+    font-size: 18px;
 }

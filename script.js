@@ -1,7 +1,7 @@
 document.getElementById('aidatForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var tcNo = document.getElementById('tcNo').value;
-    var url = 'https://docs.google.com/spreadsheets/d/17D0IltGD3NRqqMSBcuVDzZrn3dp35kMj9sReAopsA0g/export?format=xlsx';
+    var url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/17D0IltGD3NRqqMSBcuVDzZrn3dp35kMj9sReAopsA0g/export?format=xlsx';
 
     fetch(url)
         .then(response => response.arrayBuffer())
@@ -12,9 +12,14 @@ document.getElementById('aidatForm').addEventListener('submit', function(event) 
 
             console.log(json); // Verileri konsolda kontrol edin
 
-            var borc = json.find(row => row['TC Kimlik No'] == tcNo)?.['Aidat Borcu'];
-            if (borc) {
-                document.getElementById('sonuc').innerText = `Aidat Borcu: ${borc}`;
+            var uye = json.find(row => row['TC Kimlik No'] == tcNo);
+            if (uye) {
+                document.getElementById('sonuc').innerHTML = `
+                    Adı: ${uye['Adı']}<br>
+                    Soyadı: ${uye['Soyadı']}<br>
+                    Aidat Borcu: ${uye['Aidat Borcu']}<br>
+                    Dernek Alımında Verilen Para: ${uye['Verilen Para']}
+                `;
             } else {
                 document.getElementById('sonuc').innerText = 'TC Kimlik Numarası bulunamadı';
             }

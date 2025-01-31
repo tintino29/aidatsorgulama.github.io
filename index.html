@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dernek Üyeleri</title>
+    <title>Dernek Üyeleri Bilgi Sistemi</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Dernek Üyeleri Bilgi Sistemi</h1>
-        <form id="searchForm">
-            <label for="tcNo">TC Kimlik Numarası:</label>
-            <input type="text" id="tcNo" name="tcNo" required>
-            <button type="submit">Sorgula</button>
+        <form id="member-form">
+            <label for="tc">TC Kimlik Numarası:</label>
+            <input type="text" id="tc" name="tc" required>
+            <button type="submit">Bilgileri Getir</button>
         </form>
-        <div id="result"></div>
+        <div id="member-info" style="display: none;">
+            <h2>Üye Bilgileri</h2>
+            <p><strong>Adı:</strong> <span id="name"></span></p>
+            <p><strong>Soyadı:</strong> <span id="surname"></span></p>
+            <p><strong>Aidat Borcu:</strong> <span id="debt"></span></p>
+            <p><strong>Dernek Lokali İçin Verilen Para:</strong> <span id="donation"></span></p>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

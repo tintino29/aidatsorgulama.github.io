@@ -1,7 +1,7 @@
 document.getElementById('aidatForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var tcNo = document.getElementById('tcNo').value;
-    var url = 'https://docs.google.com/spreadsheets/d/17D0IltGD3NRqqMSBcuVDzZrn3dp35kMj9sReAopsA0g/edit?usp=sharing';
+    var url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/17D0IltGD3NRqqMSBcuVDzZrn3dp35kMj9sReAopsA0g/edit?usp=sharing';
 
     fetch(url)
         .then(response => response.arrayBuffer())

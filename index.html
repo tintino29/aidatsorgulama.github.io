@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dernek Aidat Sorgulama</title>
+    <title>Dernek Üyeleri</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <img src="https://drive.google.com/file/d/1qIWgv8BQmozM5YyXd6GoMdc4ud9WUXZ6/view?usp=sharing" alt="Törnük Derneği Logosu" class="logo">
-        <h1>Dernek Aidat Sorgulama</h1>
-        <form id="aidatForm">
+        <h1>Dernek Üyeleri Bilgi Sistemi</h1>
+        <form id="searchForm">
             <label for="tcNo">TC Kimlik Numarası:</label>
             <input type="text" id="tcNo" name="tcNo" required>
             <button type="submit">Sorgula</button>
         </form>
-        <div id="sonuc"></div>
+        <div id="result"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <script src="script.js"></script>

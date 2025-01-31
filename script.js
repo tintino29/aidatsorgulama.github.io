@@ -3,10 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const tc = document.getElementById('tc').value;
-        fetch('https://drive.google.com/file/d/17Zj4-_f1eR_V-bmogzFTbgnYxqqE3zvc/view?usp=sharing')
-            .then(response => response.text())
+        fetch('https://docs.google.com/spreadsheets/d/1ut9ZnF-r0Q4qGR6Pp3XsebKKSbpfSTiZNtS5O9CjHAg/edit?usp=drive_link')
+            .then(response => response.arrayBuffer())
             .then(data => {
-                const rows = data.split('\n').map(row => row.split(','));
+                const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
+                const sheetName = workbook.SheetNames[0];
+                const sheet = workbook.Sheets[sheetName];
+                const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
                 const member = rows.find(row => row[0] === tc);
                 if (member) {
                     document.getElementById('name').textContent = member[1];

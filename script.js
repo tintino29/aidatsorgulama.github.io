@@ -10,8 +10,17 @@ document.getElementById('aidatForm').addEventListener('submit', function(event) 
             var sheet = workbook.Sheets[workbook.SheetNames[0]];
             var json = XLSX.utils.sheet_to_json(sheet);
 
+            console.log(json); // Verileri konsolda kontrol edin
+
             var borc = json.find(row => row['TC Kimlik No'] == tcNo)?.['Aidat Borcu'];
-            document.getElementById('sonuc').innerText = borc ? `Aidat Borcu: ${borc}` : 'TC Kimlik Numarası bulunamadı';
+            if (borc) {
+                document.getElementById('sonuc').innerText = `Aidat Borcu: ${borc}`;
+            } else {
+                document.getElementById('sonuc').innerText = 'TC Kimlik Numarası bulunamadı';
+            }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('sonuc').innerText = 'Veri çekme hatası. Lütfen tekrar deneyin.';
+        });
 });

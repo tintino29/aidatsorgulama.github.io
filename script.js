@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const tc = document.getElementById('tc').value;
-        fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1glUdVNPeMnUMzcncV_jkHzYfs22dK9fS3HxfM1AC9QI/pub?output=csv')
+        fetch('https://drive.google.com/file/d/17Zj4-_f1eR_V-bmogzFTbgnYxqqE3zvc/view?usp=sharing')
             .then(response => response.text())
             .then(data => {
                 const rows = data.split('\n').map(row => row.split(','));

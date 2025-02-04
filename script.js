@@ -1,27 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('member-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const tc = document.getElementById('tc').value;
-        const url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/1ut9ZnF-r0Q4qGR6Pp3XsebKKSbpfSTiZNtS5O9CjHAg/edit?usp=drive_link';
-        fetch(url)
-            .then(response => response.arrayBuffer())
-            .then(data => {
-                const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
-                const sheetName = workbook.SheetNames[0];
-                const sheet = workbook.Sheets[sheetName];
-                const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-                const member = rows.find(row => row[0] === tc);
-                if (member) {
-                    document.getElementById('name').textContent = member[1];
-                    document.getElementById('surname').textContent = member[2];
-                    document.getElementById('debt').textContent = member[3];
-                    document.getElementById('donation').textContent = member[4];
-                    document.getElementById('member-info').style.display = 'block';
-                } else {
-                    alert('Üye bulunamadı.');
-                }
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    });
-});
+function getMemberInfo() {
+    const tcNo = document.getElementById('tcNo').value;
+    const fileUpload = document.getElementById('fileUpload').files[0];
+    
+    if (!fileUpload) {
+        alert("Lütfen bir Excel dosyası yükleyin.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+        for (let i = 1; i < jsonData.length; i++) {
+            if (jsonData[i][0] == tcNo) {
+                document.getElementById('ad').textContent = jsonData[i][1];
+                document.getElementById('soyad').textContent = jsonData[i][2];
+                document.getElementById('aidat').textContent = jsonData[i][3];
+                document.getElementById('alım').textContent = jsonData[i][4];
+                return;
+            }
+        }
+
+        alert("Üye bulunamadı.");
+    };
+    
+    reader.readAsArrayBuffer(fileUpload);
+}

@@ -1,14 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    background-image: url('https://drive.google.com/file/d/1GUBj6guZEYnlJJVLLJIkTPjxVWB1JrNa/view?usp=sharing'); /* Logo dosyanızın yolunu buraya ekleyin */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.2; /* Şeffaflığı ayarlamak için */
 }
 
 .container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Yarı şeffaf beyaz arka plan */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }

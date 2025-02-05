@@ -1,60 +1,70 @@
-/* Genel Ayarlar */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    position: relative; /* Arka planın doğru konumlanması için */
 }
 
-/* Başlık */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-/* Navigasyon */
-nav {
-    background-color: #444;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Ana İçerik */
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
+.background-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    bottom: 0;
+    height: 100%;
+    background-image: url('logo.png'); /* Logo dosyanızın yolunu buraya ekleyin */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.2; /* Şeffaflığı ayarlamak için */
+    z-index: -1; /* Arka planda kalması için */
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Yarı şeffaf beyaz arka plan */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative; /* Z-index'in doğru çalışması için */
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#uyeBilgileri {
+    margin-top: 20px;
 }

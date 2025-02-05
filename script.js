@@ -16,6 +16,7 @@ async function getMemberInfo() {
                 document.getElementById('soyad').textContent = rows[i][2];
                 document.getElementById('aidat').textContent = rows[i][3];
                 document.getElementById('alım').textContent = rows[i][4];
+                document.getElementById('durum').textContent = rows[i][4];
                 return;
             }
         }

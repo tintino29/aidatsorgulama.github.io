@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    position: relative; /* Arka planın doğru konumlanması için */
+    position: relative;
     margin: 0;
     padding: 0;
     display: flex;
@@ -22,8 +22,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.1; /* Şeffaflığı ayarlamak için */
-    z-index: -1; /* Arka planda kalması için */
+    opacity: 0.1;
+    z-index: -1;
 }
 
 /* Konteyner */
@@ -31,12 +31,12 @@ body {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.95); /* Yarı şeffaf beyaz arka plan */
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    position: relative; /* Z-index'in doğru çalışması için */
+    position: relative;
     z-index: 1;
-    backdrop-filter: blur(10px); /* Arka plan bulanıklığı */
+    backdrop-filter: blur(10px);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -107,4 +107,14 @@ button:hover {
 
 #uyeBilgileri:hover {
     background-color: #d4ebd4;
+}
+
+#uyeBilgileri p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+#uyeBilgileri span {
+    font-weight: bold;
+    color: #1859a9;
 }

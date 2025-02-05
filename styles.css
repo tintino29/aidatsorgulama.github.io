@@ -1,311 +1,60 @@
+/* Genel Ayarlar */
 body {
-    background-color: #224763;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-.form-holder {
-    margin-left: unset;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    right: 0;
-    left: 0;
-}
-
-.logo-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-    margin-top: 10px;
-}
-.logo-wrapper2 {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-    margin-top: 15px;
-}
- 
-.logo-image {
-    width: auto !important;
-    height: 125px;
-    
-}
-.logo-image2 {
-    width: auto !important;
-    height: 45px;   
-}
-.footer-wrapper {
-    position: relative;
-    left: 60%;
-    transform: translateX(-50%); 
-    margin-top: 15px;    
-}
-
-.icisleri-logo {
-    width: auto;
-    height: 50px;
-    padding-right: 25px;
-}
-
-.sti-logo {
-    width: auto;
-    height: 50px;
-}
-
-.submitbtn {
+/* Başlık */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
 }
 
-.wrapper {
-    position: fixed;
-    top: 0px;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../assets/sti_yildiz_logo_beyaz.png);
-    background-repeat: no-repeat;
-    background-size: 50%;
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
-.element {
-    background-color: #f7f7f8;
-    width: 450px;
-    height: 650px;
-    border-radius: 30px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    margin-top:30px;
-}
-
-#login-form input {
-    margin-bottom: 10px;
-    margin-left: 5%;
-    width: 90%;
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.login-button {
-    width: 47%;
-    border: 1px solid #ccc;
-    color: #000;
-    font-weight: bold;
-    margin-top: -19px !important;
-    height: 45px;
-    background-color:white;
-}
-
-.pin-login-button {
-    width: 47%;
-    border: 1px solid #ccc;
-    color: #000;
-    font-weight: bold;
-    height: 45px;
-    background-color: white;
-    margin: 0px 100px 0px !important;
-}
-
-.countdownlabel {
-    display: flex;
-    justify-content: center;
-}
-
-.pclass {
-    background-color: #e4e8e7;
-    display: block;
+/* Navigasyon */
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 0;
     text-align: center;
-    font-size: 20px;
-    height: 50px;
-    padding: 8px;
-    border-top-left-radius: 30px !important;
-    border-top-right-radius: 30px !important;
 }
 
-.paltclass {
-    color: white;
-    font-size: 12px;
-    padding-top: 45px;
-}
-
-.login-button2 {
-    width: 43%;
-    background: #f5f5f5;
-    color: #000;
-    font-weight: bold;
-}
-
-.forget-button {
-    width: 52%;
-    height: 40px;
-    background: #f5f5f5;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    outline: none;
-}
-
-    .forget-button span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .forget-button:hover {
-        color: #3699ff;
-        background-color: #dcdcdc;
-    }
-
-.button-wrapper {
-    height: 62px;
-    overflow: hidden;
-}
-
-.imageclass {
-    height: 27px;
-}
-
-.imageclass2 {
-    height: 26px;
-    width: 25px;
-}
-
-.button-link {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
+nav a {
+    color: #fff;
     text-decoration: none;
-    color: #000000;
-    font-weight: bold;
+    margin: 0 15px;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Ana İçerik */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
     background-color: #fff;
-    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-    .button-link:hover {
-        color: #3699ff;
-        background-color: #dcdcdc;
-    }
-
-
-
-.button-link-edevlet-button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #000000;
-    padding-left: 150px;
-}
-
-.login-edevlet-button {
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
     width: 100%;
-    height: 40px;
-    background: #f5f5f5;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-    .login-edevlet-button span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-.button-content-edevlet-button {
-    display: flex;
-    align-items: center;
-}
-
-    .button-content-edevlet-button img {
-        margin-right: 5px;
-    }
-
-.button-content {
-    display: flex;
-    align-items: center;
-}
-
-    .button-content img {
-        margin-right: 5px;
-    }
-
-.button-content2 {
-    align-items: center;
-}
-
-.login-edevlet-button:hover {
-    color: #3699ff;
-    background-color: #dcdcdc;
-}
-
-.login-button:hover {
-    color: #3699ff;
-    background-color: #dcdcdc;
-}
-
-.forget-password {
-    color: white;
-}
-
-.rememberme {
-    color: #f5f5f5;
-    margin-left: 5px;
-    width: 3% !important;
-    margin-bottom: 10px !important;
-    margin-left: 5%;
-    margin-top: 2%;
-}
-
-    .rememberme:hover {
-        color: #f5f5f5;
-    }
-
-.validation-summary-errors {
-    color: #294158;
-    margin-top: 12px;
-}
-
-.password-toggle {
-    position: relative;
-}
-
-.toggle-password {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.form-control {
-    padding-left: 45px !important;
-}
-
-.iconbox {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: 23px;
-    height: 38px;
-    background-color: transparent;
-    border: 0px;
-}
-
-.displayNone{
-    display:none;
+    bottom: 0;
 }

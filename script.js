@@ -1,4 +1,4 @@
-const csvUrl = 'https://drive.google.com/file/d/161MZimUGBJCLsNreaKSmsZLaQSaIVDrg/view?usp=sharing'; // Google Sheets paylaşım linkinizi buraya yapıştırın
+const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSReD9CYF_NYd0KVvIdaMsnCjXmoOGuEECRTf-8PhQyVYOaxq4wf_A6M2DLSrVTqoZ4f5329im3stxT/pub?gid=0&single=true&output=csv'; // Google Sheets paylaşım linkinizi buraya yapıştırın
 
 async function getMemberInfo() {
     const tcNo = document.getElementById('tcNo').value;

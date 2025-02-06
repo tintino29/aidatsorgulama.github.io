@@ -121,8 +121,6 @@ button:hover {
     min-width: 200px; /* Minimum genişlik ayarlayarak alanı genişletir */
     white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
 }
-    
-}
 
 /* Yükleme Mesajı */
 .hidden {

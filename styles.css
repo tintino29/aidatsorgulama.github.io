@@ -112,16 +112,12 @@ button:hover {
 #uyeBilgileri p {
     margin: 10px 0;
     font-size: 1.1em;
-    display: flex; /* Flex düzenini kullan */
-    justify-content: space-between; /* Metin ve TL simgesi arasındaki boşluğu ayarla */
 }
 
 #uyeBilgileri span {
     font-weight: bold;
     color: #1859a9;
-    display: inline; /* Flex düzeni ile uyumlu hale getir */
 }
-
 /* Yükleme Mesajı */
 .hidden {
     display: none;

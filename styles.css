@@ -138,3 +138,23 @@ button:hover {
     text-align: center;
     z-index: 1000;
 }
+
+.hidden {
+    display: none;
+}
+
+#loading-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+#loading-message img {
+    width: 50px; /* İhtiyacınıza göre boyutu ayarlayabilirsiniz */
+    height: 50px;
+}

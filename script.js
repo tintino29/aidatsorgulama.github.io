@@ -22,8 +22,9 @@ async function getMemberInfo() {
         }
 
         alert("Üye bulunamadı.");
-    } catch (error) {
-        console.error('Hata:', error);
-        alert("Bir hata oluştu. Lütfen bağlantıyı ve dosya formatını kontrol edin.");
+} catch (error) {
+    console.error('Hata:', error);
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.classList.remove('hidden');
     }
 }

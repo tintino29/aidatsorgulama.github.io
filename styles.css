@@ -147,7 +147,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: rgba(255, 0, 0, 0.9);
     color: #d8000c;
     padding: 20px;
     border: 2px solid #d8000c;

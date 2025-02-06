@@ -55,3 +55,9 @@ async function getMemberInfo() {
         }, 2000); // 2 saniye sonra hata mesajını gizle
     }
 }
+document.getElementById('tcNo').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Formun varsayılan submit davranışını engelle
+        getMemberInfo(); // Bilgileri Getir fonksiyonunu çağır
+    }
+});

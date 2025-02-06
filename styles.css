@@ -119,7 +119,7 @@ button:hover {
     color: #1859a9;
     display: inline-block; /* Alanın genişlemesini sağlar */
     min-width: 200px; /* Minimum genişlik ayarlayarak alanı genişletir */
-    margin-right: 5px; /* Yazı ile TL simgesi arasındaki boşluğu ayarlar */
+    
 }
 
 /* Yükleme Mesajı */

@@ -20,7 +20,16 @@ async function getMemberInfo() {
                 return;
             }
         }
+document.getElementById('fetch-button').addEventListener('click', function() {
+    const loadingMessage = document.getElementById('loading-message');
+    loadingMessage.classList.remove('hidden');
 
+    // Simulate a delay for loading
+    setTimeout(function() {
+        loadingMessage.classList.add('hidden');
+        alert("Üye bilgileri yüklendi.");
+    }, 2000); // 2 saniye bekleme süresi
+});
         alert("Üye bulunamadı.");
 } catch (error) {
     console.error('Hata:', error);

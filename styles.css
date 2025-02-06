@@ -119,6 +119,8 @@ button:hover {
     color: #1859a9;
     display: inline-block; /* Alanın genişlemesini sağlar */
     min-width: 200px; /* Minimum genişlik ayarlayarak alanı genişletir */
+    white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
+}
     
 }
 

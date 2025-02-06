@@ -126,18 +126,18 @@ button:hover {
 
 #loading-message {
     position: fixed;
-    top: 250%;
-    left: 250%;
+    top: 150%;
+    left: 150%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     z-index: 1000;
 }
 
 #loading-message img {
-    width: 250px; /* İhtiyacınıza göre boyutu ayarlayabilirsiniz */
-    height: 250px;
+    width: 150px; /* İhtiyacınıza göre boyutu ayarlayabilirsiniz */
+    height: 150px;
 }
 
 /* Hata Mesajı */

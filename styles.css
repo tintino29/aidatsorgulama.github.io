@@ -189,6 +189,14 @@ button:hover {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Hata Mesajı İçeriği */
+#error-message p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 /* Hata Mesajı Kapatma Butonu */
 #error-message .close-btn {
     position: absolute;
@@ -204,4 +212,14 @@ button:hover {
 
 #error-message .close-btn:hover {
     color: #d8000c; /* Kapatma butonunun üzerine gelindiğinde kırmızı renk */
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

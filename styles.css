@@ -147,7 +147,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 0, 0, 0.9);
+    background-color: rgba(24, 89, 169, 0.9);
     color: #d8000c;
     padding: 20px;
     border: 2px solid #d8000c;
@@ -170,12 +170,23 @@ button:hover {
     }
 }
 
-/* Hata Mesajı İçeriği */
-#error-message p {
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
-    font-weight: bold;
+/* Hata Mesajı */
+#error-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(24, 89, 169, 0.9); /* Arka plan rengini mavi tonuna ayarladık */
+    color: #fff; /* Metin rengini beyaz yaptık */
+    padding: 20px;
+    border: 2px solid #154a8a; /* Sınır rengini koyu mavi yaptık */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Hata Mesajı Kapatma Butonu */
@@ -187,10 +198,10 @@ button:hover {
     border: none;
     font-size: 20px;
     cursor: pointer;
-    color: #d8000c;
+    color: #fff; /* Kapatma butonunun rengini beyaz yaptık */
     transition: color 0.3s;
 }
 
 #error-message .close-btn:hover {
-    color: #a80000;
+    color: #d8000c; /* Kapatma butonunun üzerine gelindiğinde kırmızı renk */
 }

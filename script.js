@@ -5,6 +5,15 @@ async function getMemberInfo() {
     const loadingMessage = document.getElementById('loading-message');
     const errorMessage = document.getElementById('error-message');
 
+    // Hata mesajı kapatma butonunu ekleyin
+    const closeBtn = document.createElement('button');
+    closeBtn.classList.add('close-btn');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.onclick = function() {
+        errorMessage.classList.add('hidden');
+    };
+    errorMessage.appendChild(closeBtn);
+
     loadingMessage.classList.remove('hidden');
 
     try {
@@ -34,15 +43,15 @@ async function getMemberInfo() {
                 errorMessage.classList.remove('hidden');
                 setTimeout(() => {
                     errorMessage.classList.add('hidden');
-                }, 2000); // 3 saniye sonra hata mesajını gizle
+                }, 2000); // 2 saniye sonra hata mesajını gizle
             }
-        }, 1000); // 2 saniye bekleme süresi
+        }, 1000); // 1 saniye bekleme süresi
     } catch (error) {
         console.error('Hata:', error);
         loadingMessage.classList.add('hidden');
         errorMessage.classList.remove('hidden');
         setTimeout(() => {
             errorMessage.classList.add('hidden');
-        }, 2000); // 3 saniye sonra hata mesajını gizle
+        }, 2000); // 2 saniye sonra hata mesajını gizle
     }
 }

@@ -118,3 +118,23 @@ button:hover {
     font-weight: bold;
     color: #1859a9;
 }
+.hidden {
+    display: none;
+}
+
+#error-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #d8000c;
+    padding: 20px;
+    border: 2px solid #d8000c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+}

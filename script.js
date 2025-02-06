@@ -34,15 +34,15 @@ async function getMemberInfo() {
                 errorMessage.classList.remove('hidden');
                 setTimeout(() => {
                     errorMessage.classList.add('hidden');
-                }, 3000); // 3 saniye sonra hata mesajını gizle
+                }, 2000); // 3 saniye sonra hata mesajını gizle
             }
-        }, 2000); // 2 saniye bekleme süresi
+        }, 1000); // 2 saniye bekleme süresi
     } catch (error) {
         console.error('Hata:', error);
         loadingMessage.classList.add('hidden');
         errorMessage.classList.remove('hidden');
         setTimeout(() => {
             errorMessage.classList.add('hidden');
-        }, 3000); // 3 saniye sonra hata mesajını gizle
+        }, 2000); // 3 saniye sonra hata mesajını gizle
     }
 }

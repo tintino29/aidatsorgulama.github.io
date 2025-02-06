@@ -136,6 +136,6 @@ button:hover {
 }
 
 #loading-message img {
-    width: 50px; /* İhtiyacınıza göre boyutu ayarlayabilirsiniz */
-    height: 50px;
+    width: 150px; /* İhtiyacınıza göre boyutu ayarlayabilirsiniz */
+    height: 150px;
 }

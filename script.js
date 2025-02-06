@@ -2,6 +2,10 @@ const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSReD9CYF_NYd0KV
 
 async function getMemberInfo() {
     const tcNo = document.getElementById('tcNo').value;
+    const loadingMessage = document.getElementById('loading-message');
+    const errorMessage = document.getElementById('error-message');
+
+    loadingMessage.classList.remove('hidden');
 
     try {
         const response = await fetch(csvUrl);
@@ -10,30 +14,35 @@ async function getMemberInfo() {
         
         const rows = data.split('\n').map(row => row.split(','));
 
-        for (let i = 1; i < rows.length; i++) {
-            if (rows[i][0] === tcNo) {
-                document.getElementById('ad').textContent = rows[i][1];
-                document.getElementById('soyad').textContent = rows[i][2];
-                document.getElementById('aidat').textContent = rows[i][3];
-                document.getElementById('alım').textContent = rows[i][4];
-                document.getElementById('durum').textContent = rows[i][5];
-                return;
-            }
-        }
-document.getElementById('fetch-button').addEventListener('click', function() {
-    const loadingMessage = document.getElementById('loading-message');
-    loadingMessage.classList.remove('hidden');
+        setTimeout(() => {
+            loadingMessage.classList.add('hidden');
+            let memberFound = false;
 
-    // Simulate a delay for loading
-    setTimeout(function() {
+            for (let i = 1; i < rows.length; i++) {
+                if (rows[i][0] === tcNo) {
+                    document.getElementById('ad').textContent = rows[i][1];
+                    document.getElementById('soyad').textContent = rows[i][2];
+                    document.getElementById('aidat').textContent = rows[i][3];
+                    document.getElementById('alım').textContent = rows[i][4];
+                    document.getElementById('durum').textContent = rows[i][5];
+                    memberFound = true;
+                    break;
+                }
+            }
+
+            if (!memberFound) {
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 3000); // 3 saniye sonra hata mesajını gizle
+            }
+        }, 2000); // 2 saniye bekleme süresi
+    } catch (error) {
+        console.error('Hata:', error);
         loadingMessage.classList.add('hidden');
-        alert("Üye bilgileri yüklendi.");
-    }, 2000); // 2 saniye bekleme süresi
-});
-        alert("Üye bulunamadı.");
-} catch (error) {
-    console.error('Hata:', error);
-    const errorMessage = document.getElementById('error-message');
-    errorMessage.classList.remove('hidden');
+        errorMessage.classList.remove('hidden');
+        setTimeout(() => {
+            errorMessage.classList.add('hidden');
+        }, 3000); // 3 saniye sonra hata mesajını gizle
     }
 }

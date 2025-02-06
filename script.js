@@ -61,3 +61,78 @@ document.getElementById('tcNo').addEventListener('keypress', function(event) {
         getMemberInfo(); // Bilgileri Getir fonksiyonunu çağır
     }
 });
+
+async function getMemberInfo() {
+    const tcNo = document.getElementById('tcNo').value;
+    const loadingMessage = document.getElementById('loading-message');
+    const errorMessage = document.getElementById('error-message');
+
+    // Hata mesajı kapatma butonunu ekleyin
+    const closeBtn = document.createElement('button');
+    closeBtn.classList.add('close-btn');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.onclick = function() {
+        errorMessage.classList.add('hidden');
+    };
+    errorMessage.appendChild(closeBtn);
+
+    if (tcNo.trim() === "") {
+        errorMessage.textContent = "Lütfen TC Kimlik Numaranızı giriniz.";
+        errorMessage.classList.remove('hidden');
+        setTimeout(() => {
+            errorMessage.classList.add('hidden');
+        }, 2000); // 2 saniye sonra hata mesajını gizle
+        return;
+    }
+
+    loadingMessage.classList.remove('hidden');
+
+    try {
+        const response = await fetch(csvUrl);
+        if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
+        const data = await response.text();
+        
+        const rows = data.split('\n').map(row => row.split(','));
+
+        setTimeout(() => {
+            loadingMessage.classList.add('hidden');
+            let memberFound = false;
+
+            for (let i = 1; i < rows.length; i++) {
+                if (rows[i][0] === tcNo) {
+                    document.getElementById('ad').textContent = rows[i][1];
+                    document.getElementById('soyad').textContent = rows[i][2];
+                    document.getElementById('aidat').textContent = rows[i][3];
+                    document.getElementById('alım').textContent = rows[i][4];
+                    document.getElementById('durum').textContent = rows[i][5];
+                    memberFound = true;
+                    break;
+                }
+            }
+
+            if (!memberFound) {
+                errorMessage.textContent = "Lütfen TC Kimlik Numaranızı kontrol edin.";
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 2000); // 2 saniye sonra hata mesajını gizle
+            }
+        }, 1000); // 1 saniye bekleme süresi
+    } catch (error) {
+        console.error('Hata:', error);
+        loadingMessage.classList.add('hidden');
+        errorMessage.textContent = "Lütfen TC Kimlik Numaranızı kontrol edin.";
+        errorMessage.classList.remove('hidden');
+        setTimeout(() => {
+            errorMessage.classList.add('hidden');
+        }, 2000); // 2 saniye sonra hata mesajını gizle
+    }
+}
+
+// Enter tuşuna basıldığında bilgileri getir
+document.getElementById('tcNo').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Formun varsayılan submit davranışını engelle
+        getMemberInfo(); // Bilgileri Getir fonksiyonunu çağır
+    }
+});

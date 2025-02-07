@@ -1,4 +1,12 @@
 const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSReD9CYF_NYd0KVvIdaMsnCjXmoOGuEECRTf-8PhQyVYOaxq4wf_A6M2DLSrVTqoZ4f5329im3stxT/pub?gid=0&single=true&output=csv'; // Google Sheets paylaşım linkinizi buraya yapıştırın
+setInterval(function() {
+    fetch(csvUrl)
+        .then(response => response.text())
+        .then(data => {
+            // CSV verisini işleme
+            console.log(data);
+        });
+}, 5000); // 5000 milisaniye = 5 saniye
 
 async function getMemberInfo() {
     const tcNo = document.getElementById('tcNo').value;

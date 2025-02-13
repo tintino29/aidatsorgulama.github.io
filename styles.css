@@ -1,6 +1,7 @@
+/* styles.css */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color:  #f0f8ff;
+    background-color: #f0f8ff;
     color: #333;
     position: relative;
     margin: 0;
@@ -65,7 +66,7 @@ label {
     color: #1859a9;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     padding: 12px;
     font-size: 16px;
     border-radius: 5px;
@@ -73,7 +74,7 @@ input[type="text"] {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
     border-color: #1859a9;
     box-shadow: 0 0 10px rgba(24, 89, 169, 0.2);
     outline: none;
@@ -209,44 +210,4 @@ button:hover {
 @media (max-width: 600px) {
     body {
         flex-direction: column;
-        height: auto;
-        padding: 20px;
-    }
-
-    .container {
-        width: 100%;
-        margin: 20px auto;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    input[type="text"], button {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    #uyeBilgileri {
-        padding: 15px;
-    }
-
-    #loading-message img {
-        width: 100px;
-        height: 100px;
-    }
-
-    #error-message {
-        width: 90%;
-        padding: 15px;
-    }
-
-    #error-message p {
-        font-size: 14px;
-    }
-
-    #error-message .close-btn {
-        font-size: 18px;
-    }
-}
+        height

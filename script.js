@@ -4,7 +4,7 @@ setInterval(function() {
         .then(response => response.text())
         .then(data => {
             // CSV verisini işleme
-            console.log(data);
+            // console.log(data);
         });
 }, 5000); // 5000 milisaniye = 5 saniye
 

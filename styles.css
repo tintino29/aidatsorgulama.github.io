@@ -18,11 +18,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('IMG_3604.JPG'); /* Logo dosyanızın yolunu buraya ekleyin */
+    background-image: url('back.png'); /* Logo dosyanızın yolunu buraya ekleyin */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.1;
+    opacity: 10.0;
     z-index: -1;
 }
 

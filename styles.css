@@ -118,6 +118,7 @@ button:hover {
     font-weight: bold;
     color: #1859a9;
 }
+
 /* Yükleme Mesajı */
 .hidden {
     display: none;
@@ -169,25 +170,6 @@ button:hover {
     }
 }
 
-/* Hata Mesajı */
-#error-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(24, 89, 169, 0.9); /* Arka plan rengini mavi tonuna ayarladık */
-    color: #fff; /* Metin rengini beyaz yaptık */
-    padding: 20px;
-    border: 2px solid #154a8a; /* Sınır rengini koyu mavi yaptık */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    text-align: center;
-    z-index: 1000;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
 /* Hata Mesajı İçeriği */
 #error-message p {
     margin: 0;
@@ -220,5 +202,51 @@ button:hover {
     }
     to {
         opacity: 1;
+    }
+}
+
+/* Mobil Uyumlu Stil Kuralları */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"], button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #uyeBilgileri {
+        padding: 15px;
+    }
+
+    #loading-message img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #error-message {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #error-message p {
+        font-size: 14px;
+    }
+
+    #error-message .close-btn {
+        font-size: 18px;
     }
 }

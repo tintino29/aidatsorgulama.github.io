@@ -22,7 +22,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 10.0;
+    opacity: 0.5;
     z-index: -1;
 }
 

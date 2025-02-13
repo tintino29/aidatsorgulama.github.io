@@ -1,10 +1,12 @@
+console.log = function() {}; // Bu satır tüm console.log çağrılarını devre dışı bırakır
+
 const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSReD9CYF_NYd0KVvIdaMsnCjXmoOGuEECRTf-8PhQyVYOaxq4wf_A6M2DLSrVTqoZ4f5329im3stxT/pub?gid=0&single=true&output=csv'; // Google Sheets paylaşım linkinizi buraya yapıştırın
 setInterval(function() {
     fetch(csvUrl)
         .then(response => response.text())
         .then(data => {
             // CSV verisini işleme
-            // console.log(data);
+            console.log(data); // Bu satır artık hiçbir şey yazdırmaz
         });
 }, 5000); // 5000 milisaniye = 5 saniye
 

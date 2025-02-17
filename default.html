@@ -25,7 +25,7 @@
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+    fetch('https://script.google.com/macros/s/AKfycbxaYe0Q_1FG0B8i9eJgAffvEs9cLWteN6pEpfk2O_mHaxaLqvlKaVtNZhOX9OgCDy4z/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

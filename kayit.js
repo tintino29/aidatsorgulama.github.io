@@ -7,19 +7,24 @@ document.getElementById('kayitFormu').addEventListener('submit', function(event)
     const dogumTarihi = document.getElementById('dogumTarihi').value;
     const telefon = document.getElementById('telefon').value;
 
-    const data = [
-        ['Ad', 'Soyad', 'TC No', 'Doğum Tarihi', 'Telefon'],
-        [ad, soyad, tcno, dogumTarihi, telefon]
-    ];
+    const data = {
+        ad: ad,
+        soyad: soyad,
+        tcno: tcno,
+        dogumTarihi: dogumTarihi,
+        telefon: telefon
+    };
 
-    let csvContent = "data:text/csv;charset=utf-8," 
-        + data.map(e => e.join(",")).join("\n");
-
-    var encodedUri = encodeURI(csvContent);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "kayit.csv");
-    document.body.appendChild(link);
-
-    link.click();
+    fetch('https://script.google.com/macros/s/AKfycbzAU6O54RGVkZWyl4AFMo4pcmDv7KC-dGVmdIsXTrbYfwyEtHzUZEix2-3D7LrFCLKo/exec', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(response => {
+        alert('Bilgiler başarıyla kaydedildi!');
+    }).catch(error => {
+        console.error('Error:', error);
+        alert('Bilgiler kaydedilirken bir hata oluştu.');
+    });
 });

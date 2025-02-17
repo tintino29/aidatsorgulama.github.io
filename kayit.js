@@ -15,7 +15,7 @@ document.getElementById('kayitFormu').addEventListener('submit', function(event)
         telefon: telefon
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbziZ-cB4PpUI8hHVws1mqeX6radSu8J6_vOJqg_6fZl4dHRbtzPGfzQLiT1pa-ZWa3P/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwjB4LBKV_CHCZDORU9-CruC-CZE9B77YOsxjNTHYMDLLFmutB0uU0Jz6ozTz6dtQMi/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

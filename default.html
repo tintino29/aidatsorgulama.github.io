@@ -21,25 +21,26 @@
 
     <script>
         document.getElementById('uyeFormu').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
 
-            fetch('https://script.google.com/macros/s/AKfycbxaYe0Q_1FG0B8i9eJgAffvEs9cLWteN6pEpfk2O_mHaxaLqvlKaVtNZhOX9OgCDy4z/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.text())
-            .then(result => {
-                alert('Başarılı: ' + result);
-            })
-            .catch(error => {
-                console.error('Hata:', error);
-            });
-        });
+    fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'no-cors',
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert('Başarılı: ' + result);
+    })
+    .catch(error => {
+        console.error('Hata:', error);
+    });
+});
     </script>
 </body>
 </html>

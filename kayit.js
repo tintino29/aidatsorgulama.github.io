@@ -17,6 +17,7 @@ document.getElementById('kayitFormu').addEventListener('submit', function(event)
 
     fetch('https://script.google.com/macros/s/AKfycbzAU6O54RGVkZWyl4AFMo4pcmDv7KC-dGVmdIsXTrbYfwyEtHzUZEix2-3D7LrFCLKo/exec', {
         method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
         },

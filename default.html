@@ -20,26 +20,27 @@
     </form>
 
     <script>
-        document.getElementById('uyeFormu').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
+       document.getElementById('uyeFormu').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
 
-            fetch('https://script.google.com/macros/s/AKfycby5U9WIMs45IoolQu7vTgpo4qMAz5yrgPRFDWl_OIK_SesMYBPr6Qd-mcb3kJnGkku7/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                alert('Başarılı: ' + result.status);
-            })
-            .catch(error => {
-                console.error('Hata:', error);
-            });
-        });
+    fetch('https://script.google.com/macros/s/AKfycby5U9WIMs45IoolQu7vTgpo4qMAz5yrgPRFDWl_OIK_SesMYBPr6Qd-mcb3kJnGkku7/exec', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'no-cors',
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert('Başarılı: ' + result);
+    })
+    .catch(error => {
+        console.error('Hata:', error);
+    });
+});
     </script>
 </body>
 </html>

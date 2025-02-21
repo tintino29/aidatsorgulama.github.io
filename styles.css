@@ -129,12 +129,27 @@ button:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; /* İnce kenarlık */
 }
 
 #loading-message img {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* Resmin boyutunu büyüttük */
+    height: 80px;
+}
+
+/* Hata Mesajı */
+#error-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.8); /* Kırmızı arka plan */
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* İnce kenarlık */
+    text-align: center;
 }
 
 .hidden {

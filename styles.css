@@ -88,13 +88,13 @@ button:hover {
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 1px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #loading-message img {
-    width: 60px;
-    height: 60px;
+    width: 150px;
+    height: 150px;
 }
 
 @media (max-width: 600px) {

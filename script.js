@@ -31,3 +31,10 @@ function getMemberInfo() {
             document.getElementById('error-message').classList.remove('hidden');
         });
 }
+function showError() {
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.classList.remove('hidden');
+    setTimeout(() => {
+        errorMessage.classList.add('hidden');
+    }, 3000); // 3 saniye sonra hata mesajını gizler
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Törnük Derneği Üye Bilgi Sistemi</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
     <div class="background-logo"></div>
@@ -14,7 +15,7 @@
             <label for="tcNo">TC Kimlik No:</label>
             <input type="text" id="tcNo" name="tcNo" required>
             <button type="submit">Bilgileri Getir</button>
-            <button type="button" onclick="window.location.href='bagis.html'">Bağış Verenler Listesi</button>
+            <button type="button" onclick="showLoadingAndRedirect()">Bağış Verenler Listesi</button>
         </form>
         <div id="uyeBilgileri">
             <p><strong>Ad:</strong> <span id="ad"></span></p>

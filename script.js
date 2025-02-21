@@ -1,31 +1,33 @@
-document.getElementById('kayitFormu').addEventListener('submit', function(event) {
+document.getElementById('uyeForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
-    const ad = document.getElementById('ad').value;
-    const soyad = document.getElementById('soyad').value;
-    const tcno = document.getElementById('tcno').value;
-    const dogumTarihi = document.getElementById('dogumTarihi').value;
-    const telefon = document.getElementById('telefon').value;
-
-    const data = {
-        ad: ad,
-        soyad: soyad,
-        tcno: tcno,
-        dogumTarihi: dogumTarihi,
-        telefon: telefon
-    };
-
-    fetch('https://script.google.com/macros/s/AKfycbxYmKu8alSha48fQWa1lBeKEf-MxLvyGOHNQQEJJw5eKCYA2Q8VKV5wxGWl3mMtvSDo/exec', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(response => {
-        alert('Bilgiler başarıyla kaydedildi!');
-    }).catch(error => {
-        console.error('Error:', error);
-        alert('Bilgiler kaydedilirken bir hata oluştu.');
-    });
+    getMemberInfo();
 });
+
+function getMemberInfo() {
+    const tcNo = document.getElementById('tcNo').value;
+    const url = 'https://raw.githubusercontent.com/username/repository/main/uye.xlsx'; // GitHub'daki dosyanızın URL'si
+
+    fetch(url)
+        .then(response => response.arrayBuffer())
+        .then(data => {
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+            const member = jsonData.find(member => member.TC === tcNo);
+            if (member) {
+                document.getElementById('ad').textContent = member.Ad;
+                document.getElementById('soyad').textContent = member.Soyad;
+                document.getElementById('aidat').textContent = member.Aidat;
+                document.getElementById('alım').textContent = member.Alım;
+                document.getElementById('durum').textContent = member.Durum;
+            } else {
+                document.getElementById('error-message').classList.remove('hidden');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('error-message').classList.remove('hidden');
+        });
+}

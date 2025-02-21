@@ -5,7 +5,7 @@ document.getElementById('uyeForm').addEventListener('submit', function(event) {
 
 function getMemberInfo() {
     const tcNo = document.getElementById('tcNo').value;
-    const url = 'https://raw.githubusercontent.com/tintino29/aidatsorgulama.github.io/main/uye.xlsx'; // GitHub'daki dosyanızın URL'si
+    const url = 'https://raw.githubusercontent.com/kullaniciadi/depoadi/main/uye.xlsx'; // GitHub'daki dosyanızın URL'si
 
     fetch(url)
         .then(response => response.arrayBuffer())
@@ -15,6 +15,8 @@ function getMemberInfo() {
             const sheet = workbook.Sheets[sheetName];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
+            console.log(jsonData); // Veriyi konsola yazdırarak kontrol edin
+
             const member = jsonData.find(member => member.TC === tcNo);
             if (member) {
                 document.getElementById('ad').textContent = member.Ad;
@@ -23,14 +25,15 @@ function getMemberInfo() {
                 document.getElementById('alım').textContent = member.Alım;
                 document.getElementById('durum').textContent = member.Durum;
             } else {
-                document.getElementById('error-message').classList.remove('hidden');
+                showError();
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            document.getElementById('error-message').classList.remove('hidden');
+            showError();
         });
 }
+
 function showError() {
     const errorMessage = document.getElementById('error-message');
     errorMessage.classList.remove('hidden');

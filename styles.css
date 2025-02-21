@@ -124,17 +124,18 @@ button:hover {
     position: fixed;
     top: 50%;
     left: 50%;
+    opacity: 75%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    padding: 2px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc; /* İnce kenarlık */
 }
 
 #loading-message img {
-    width: 80px; /* Resmin boyutunu büyüttük */
-    height: 80px;
+    width: 120px; /* Resmin boyutunu büyüttük */
+    height: 120px;
 }
 
 /* Hata Mesajı */

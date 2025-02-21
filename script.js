@@ -5,7 +5,7 @@ document.getElementById('uyeForm').addEventListener('submit', function(event) {
 
 function getMemberInfo() {
     const tcNo = document.getElementById('tcNo').value;
-    const url = 'https://raw.githubusercontent.com/kullaniciadi/depoadi/main/uye.xlsx'; // GitHub'daki dosyanızın URL'si
+    const url = 'https://raw.githubusercontent.com/tintino29/aidatsorgulama.github.io/main/uye.xlsx'; // GitHub'daki dosyanızın URL'si
 
     fetch(url)
         .then(response => response.arrayBuffer())

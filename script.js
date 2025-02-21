@@ -30,6 +30,14 @@ function getMemberInfo() {
         });
 }
 
+function showLoadingAndRedirect() {
+    document.getElementById('loading-message').classList.remove('hidden');
+    setTimeout(() => {
+        document.getElementById('loading-message').classList.add('hidden');
+        window.location.href = 'bagis.html';
+    }, 2000); // 2 saniye sonra yönlendir
+}
+
 function showError() {
     const errorMessage = document.getElementById('error-message');
     errorMessage.classList.remove('hidden');

@@ -1,47 +1,120 @@
-document.getElementById('uyeForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    getMemberInfo();
-});
-
-function getMemberInfo() {
-    const tcNo = document.getElementById('tcNo').value;
-    const url = 'https://script.google.com/macros/s/AKfycbxLIZuZu05pKPF_WvkPrShSJQdp3M86KOlaWyryR5VVDj7nyfvPca0hPJiPns5kTufW/exec?tc=' + tcNo;
-
-    document.getElementById('loading-message').classList.remove('hidden');
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('loading-message').classList.add('hidden');
-            if (data && data.length > 0) {
-                document.getElementById('ad').textContent = data[1]; // Ad
-                document.getElementById('soyad').textContent = data[2]; // Soyad
-                document.getElementById('aidat').textContent = data[3]; // Aidat
-                document.getElementById('alım').textContent = data[4]; // Alım
-                document.getElementById('durum').textContent = data[5]; // Durum
-            } else {
-                showError();
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('loading-message').classList.add('hidden');
-            showError();
-        });
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-function showLoadingAndRedirect() {
-    document.getElementById('loading-message').classList.remove('hidden');
-    setTimeout(() => {
-        document.getElementById('loading-message').classList.add('hidden');
-        window.location.href = 'bagis.html';
-    }, 2000); // 2 saniye sonra yönlendir
+/* Arka Plan Logo */
+.background-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('logo.png'); /* Logo dosyanızın yolunu buraya ekleyin */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: -1;
 }
 
-function showError() {
-    const errorMessage = document.getElementById('error-message');
-    errorMessage.classList.remove('hidden');
-    setTimeout(() => {
-        errorMessage.classList.add('hidden');
-    }, 3000); // 3 saniye sonra hata mesajını gizler
+/* Konteyner */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Başlık */
+h1 {
+    text-align: center;
+    color: #1859a9;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #1859a9;
+}
+
+input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #1859a9;
+    box-shadow: 0 0 10px rgba(24, 89, 169, 0.2);
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #1859a9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #154a8a;
+    transform: translateY(-2px);
+}
+
+/* Üye Bilgileri */
+#uyeBilgileri {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e9f5e9;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+}
+
+#uyeBilgileri:hover {
+    background-color: #d4ebd4;
+}
+
+#uyeBilgileri p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+#uyeBilgileri span {
+    font-weight: bold;
+    color: #1859a9;
 }

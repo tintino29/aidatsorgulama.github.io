@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
+    
     <div class="background-logo"></div>
     <div class="container">
         <h1>Üye Bilgileri</h1>
@@ -32,6 +33,16 @@
             <p>TC Kimlik Numaranızı Kontrol Edin.</p>
         </div>
     </div>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+    .then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
     <script src="script.js"></script>
 </body>
 </html>
